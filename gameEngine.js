@@ -1,5 +1,6 @@
 function start(state, game) {
     game.createBoard(state.board);
+    game.createBall(state.ball);
     window.requestAnimationFrame(gameLoop.bind(null, state, game));
 }
 
