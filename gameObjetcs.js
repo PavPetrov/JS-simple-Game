@@ -25,19 +25,21 @@ function initGameObjects() {
             return boardElement;
 
         },
-        createBall(state){
+        createBall(state) {
             let ballElement = document.createElement('div');
             ballElement.classList.add('ball');
 
             ballElement.style.width = state.width + 'px';
             ballElement.style.height = state.height + 'px';
 
-            state.posX =  game.gameScreen.offsetWidth / 2 - 10;
-            
-            ballElement.style.left = state.posX +'px';
-            ballElement.style.bottom = state.posY +'px';
+            state.posX = game.gameScreen.offsetWidth / 2 - 10;
+
+            ballElement.style.left = state.posX + 'px';
+            ballElement.style.bottom = state.posY + 'px';
 
             gameScreen.appendChild(ballElement);
+
+            this.ballElement = ballElement;
 
         }
 
