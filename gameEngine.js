@@ -10,11 +10,11 @@ function gameLoop() {
 
     if (state.keys.ArrowLeft) {
         console.log(state.keys);
-        board.posX -= 5;
+        board.posX -= board.speed;
     }
 
     if (state.keys.ArrowRight) {
-        board.posX += 5;
+        board.posX += board.speed;
     }
 
     boardElement.style.left = board.posX + 'px';

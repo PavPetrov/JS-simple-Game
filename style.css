@@ -38,7 +38,6 @@ body {
     position: absolute;
     background-image: url(/img/board.png);
     background-size: cover;
-    left: 50%;
     transform: translate(-50%);
 
 }
