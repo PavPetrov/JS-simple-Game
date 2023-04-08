@@ -36,7 +36,7 @@ body {
 
 .board {
     position: absolute;
-    background-image: url(/img/board.png);
+    background-image: url(img/board.png);
     background-size: cover;
     transform: translate(-50%);
 
