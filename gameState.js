@@ -1,4 +1,5 @@
 function initState(){
+    
 
 
     const state = {
@@ -6,7 +7,7 @@ function initState(){
         board:{
             width: 100, 
             height: 24,
-            posX: 100,
+        //    posX: 100,
             posY: 50,
             speed: 5
         },

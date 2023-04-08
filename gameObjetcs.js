@@ -13,7 +13,9 @@ function initGameObjects() {
             boardElement.style.width = initState.width + 'px';
             boardElement.style.height = initState.height + 'px';
 
-         //   boardElement.style.left = initState.posX + 'px';
+            initState.posX = game.gameScreen.offsetWidth / 2 - 50;
+
+           boardElement.style.left = initState.posX + 'px';
            boardElement.style.bottom = initState.posY + 'px';
 
             gameScreen.appendChild(boardElement);

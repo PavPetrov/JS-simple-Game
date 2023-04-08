@@ -9,12 +9,14 @@ function gameLoop() {
 
 
     if (state.keys.ArrowLeft) {
-        console.log(state.keys);
-        board.posX -= board.speed;
+
+        board.posX = Math.max(board.posX - board.speed, 0);
+
     }
 
     if (state.keys.ArrowRight) {
-        board.posX += board.speed;
+
+        board.posX = Math.min(board.posX + board.speed, game.gameScreen.offsetWidth - board.width);
     }
 
     boardElement.style.left = board.posX + 'px';
