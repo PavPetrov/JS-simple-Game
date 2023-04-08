@@ -2,6 +2,7 @@ function start(state, game) {
     game.createBoard(state.board);
     game.createBall(state.ball);
     window.requestAnimationFrame(gameLoop.bind(null, state, game));
+
 }
 
 function gameLoop() {
@@ -25,16 +26,141 @@ function gameLoop() {
 
     ballMovment(ball, board, state, game);
 
-    console.log('frame');
+    //  console.log('frame');
     window.requestAnimationFrame(gameLoop.bind(null, state, game));
 }
 
-function ballMovment (ball, board, state, game) {
- //   const { ball } = state;
+function ballMovment(ball, board, state, game) {
+    //   const { ball } = state;
     const { ballElement } = game;
+    const scrWidth = game.gameScreen.offsetWidth - ball.width;
+    const scrHeight = game.gameScreen.offsetHeight - ball.height;
 
-    ball.posY += ball.ofsetY + ball.speed;
-    ball.posX += ball.ofsetX + ball.speed;
+    //Start random Left or Right Movment
+    if (!(ball.moveUp || ball.moveDown || ball.ArrowLeft || ball.moveRight)) {
+        if (Math.random() < 1) {
+            moveRight();
+            moveUp();
+            ball.moveRight = true;
+            ball.moveUp = true;
+            console.log('right');
+        } else {
+            moveLeft();
+            moveUp();
+            ball.moveLeft = true;
+            ball.moveUp = true;
+            console.log('left');
+        }
+    }
+
+    //Movment type 1
+    if (ball.moveUp && ball.moveRight) {
+        if (ball.posX < scrWidth) {
+            moveRight();
+        } else {
+            ball.moveRight = false;
+            ball.moveLeft = true;
+        }
+
+        if (ball.posY < scrHeight) {
+            moveUp();
+        } else {
+            ball.moveUp = false;
+            ball.moveDown = true;
+        }
+    }
+
+    //Movment type 2
+    if (ball.moveLeft && ball.moveUp) {
+        if (ball.posX > 0) {
+            moveLeft();
+        } else {
+            ball.moveRight = true;
+            ball.moveLeft = false;
+        }
+
+        if (ball.posY < scrHeight) {
+            moveUp();
+        } else {
+            ball.moveDown = true;
+            ball.moveUp = false;
+        }
+    }
+
+    // Movment Type 1-1
+    if (ball.moveLeft && ball.moveDown) {
+
+        if (ball.posX > 0 + ball.width) {
+            moveLeft();
+        } else {
+            ball.moveLeft = false;
+            ball.moveRight = true;
+        }
+
+        if (ball.posY > 0 + ball.height) {
+            moveDown();
+        } else {
+            //Reflect Or Game OVer
+            return;
+        }
+
+
+        // Colision board Or End Game
+
+    }
+
+    //Movment Type 2-1
+
+    // if(moveDown && moveRight){
+    //     if(ball.posX < scrWidth){
+    //         moveRight();
+    //     } else{
+    //         moveRight = false;
+    //         moveLeft = true;
+    //     }
+
+    //     if(ball.posY > 0 + ball.height){
+    //         moveDown();
+    //     } else{
+    //          //Reflect Or Game OVer
+    //          return;
+    //     }
+    // }
+
+
+
+
+
+
+    // console.log(ball.posX);
+    // console.log(ball.posY);
+    // console.log(ball.moveUp);
+    // console.log(ball.moveRight);
+    // console.log(ball.moveDown);
+    // console.log(ball.moveLeft);
+
+
+
+
+
+    function moveUp() {
+        ball.posY += ball.speed;
+    }
+
+    function moveRight() {
+        ball.posX += ball.speed;
+    }
+
+    function moveLeft() {
+        console.log('moveLeft');
+        ball.posX -= ball.speed;
+    }
+
+    function moveDown() {
+        ball.posY -= ball.speed;
+    }
+
+
 
     ballElement.style.left = ball.posX + 'px';
     ballElement.style.bottom = ball.posY + 'px';

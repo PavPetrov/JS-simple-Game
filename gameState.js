@@ -18,11 +18,13 @@ function initState() {
         ball: {
             width: 25,
             height: 25,
-         //   posX: 0,
+            //   posX: 0,
             posY: 70,
-            speed: 1,
-            ofsetX: 1,
-            ofsetY: 1
+            speed: 2,
+            moveUp: false,
+            moveDown: false,
+            moveLeft: false,
+            moveRight: false,
         }
     }
 
