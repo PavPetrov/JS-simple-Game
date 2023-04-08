@@ -1,9 +1,29 @@
-const startScreen = document.querySelector('.start-screen');
-const gameScreen = document.querySelector('.game-screen');
+let state = initState();
+let game = initGameObjects();
 
-startScreen.addEventListener('click', (e) =>{
+const commandKeys = [
+    'ArrowLeft',
+    'ArrowRight'
+]
+
+document.addEventListener('keydown', (e) => {
+    if (commandKeys.includes(e.code)) {
+        state.keys[e.code] = true;
+    }
+})
+
+document.addEventListener('keyup', (e) => {
+    if (commandKeys.includes(e.code)) {
+        state.keys[e.code] = false;
+    }
+})
+
+
+game.startScreen.addEventListener('click', (e) => {
     console.log(e.currentTarget);
     e.currentTarget.classList.add('hidden');
-    gameScreen.classList.remove('hidden');
+    game.gameScreen.classList.remove('hidden');
+
+    start(state, game);
 
 })
