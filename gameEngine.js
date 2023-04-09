@@ -47,13 +47,13 @@ function ballMovment(ball, board, state, game) {
             moveUp();
             ball.moveRight = true;
             ball.moveUp = true;
-            console.log('right');
+         //   console.log('right');
         } else {
             moveLeft();
             moveUp();
             ball.moveLeft = true;
             ball.moveUp = true;
-            console.log('left');
+         //   console.log('left');
         }
     }
 
@@ -95,7 +95,7 @@ function ballMovment(ball, board, state, game) {
     if (ball.moveLeft && ball.moveDown) {
 
         if (ball.posX > 0) {
-            console.log('111');
+          //  console.log('111');
             moveLeft();
         } else {
             ball.moveLeft = false;
@@ -179,7 +179,7 @@ function ballMovment(ball, board, state, game) {
     ballElement.style.left = ball.posX + 'px';
     ballElement.style.bottom = ball.posY + 'px';
 
-    let data = document.querySelector('.data');
-    data.textContent = state.pointer.posX;
+    // let data = document.querySelector('.data');
+    // data.textContent = state.pointer.posX;
 
 }
