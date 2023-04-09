@@ -21,7 +21,7 @@ document.addEventListener('touchmove', (e) => {
 
     let touch = e.originalEvent.touches[0];
 
-    state.pointer.posX = touch.clientX;
+    state.pointer.posX =e.clientX;
     //   console.log(e.movementX);
     //   console.log(e.layerX)
 
