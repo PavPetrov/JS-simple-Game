@@ -19,9 +19,7 @@ document.addEventListener('keyup', (e) => {
 });
 document.addEventListener('touchmove', (e) => {
 
-    let touch = e.originalEvent.touches[0];
-
-    state.pointer.posX =e.clientX;
+    state.pointer.posX = e.touches[0].clientX;
     //   console.log(e.movementX);
     //   console.log(e.layerX)
 
