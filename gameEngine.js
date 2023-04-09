@@ -129,6 +129,28 @@ function ballMovment(ball, board, state, game) {
     }
 
 
+    //Reflection from Board
+
+
+    if ((ball.posX > board.posX && ball.posX < board.posX + board.width) &&
+        (ball.posY < 50 + ball.height)) {
+
+        if (ball.moveDown && ball.moveRight) {
+            ball.moveDown = false;
+            ball.moveUp = true;
+            moveUp();
+            moveRight();
+        } else if(ball.moveDown && ball.moveLeft) {
+            ball.moveDown = false;
+            ball.moveUp = true;
+            moveUp();
+            moveLeft();
+        }
+     //   console.log('reflect');
+
+    }
+
+
 
     function moveUp() {
         console.log('Up');
@@ -152,6 +174,5 @@ function ballMovment(ball, board, state, game) {
 
     ballElement.style.left = ball.posX + 'px';
     ballElement.style.bottom = ball.posY + 'px';
-
 
 }
