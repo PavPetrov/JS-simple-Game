@@ -20,7 +20,7 @@ function initState() {
             height: 25,
             //   posX: 0,
             posY: 70,
-            speed: 2,
+            speed: 4,
             moveUp: false,
             moveDown: false,
             moveLeft: false,
