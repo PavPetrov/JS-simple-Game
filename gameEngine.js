@@ -12,13 +12,10 @@ function gameLoop() {
 
 
     if (state.keys.ArrowLeft) {
-
         board.posX = Math.max(board.posX - board.speed, 0);
-
     }
 
     if (state.keys.ArrowRight) {
-
         board.posX = Math.min(board.posX + board.speed, game.gameScreen.offsetWidth - board.width);
     }
 
@@ -26,7 +23,10 @@ function gameLoop() {
 
     ballMovment(ball, board, state, game);
 
-    //  console.log('frame');
+    if (ball.isGone) {
+        return alert('Game over');
+    }
+
     window.requestAnimationFrame(gameLoop.bind(null, state, game));
 }
 
@@ -38,7 +38,7 @@ function ballMovment(ball, board, state, game) {
 
     //Start random Left or Right Movment
     if (!(ball.moveUp || ball.moveDown || ball.ArrowLeft || ball.moveRight)) {
-        if (Math.random() < 1) {
+        if (Math.random() < 0.5) {
             moveRight();
             moveUp();
             ball.moveRight = true;
@@ -90,17 +90,18 @@ function ballMovment(ball, board, state, game) {
     // Movment Type 1-1
     if (ball.moveLeft && ball.moveDown) {
 
-        if (ball.posX > 0 + ball.width) {
+        if (ball.posX > 0) {
+            console.log('111');
             moveLeft();
         } else {
             ball.moveLeft = false;
             ball.moveRight = true;
         }
 
-        if (ball.posY > 0 + ball.height) {
+        if (ball.posY > 0) {
             moveDown();
         } else {
-            //Reflect Or Game OVer
+            ball.isGone = true;
             return;
         }
 
@@ -111,56 +112,43 @@ function ballMovment(ball, board, state, game) {
 
     //Movment Type 2-1
 
-    // if(moveDown && moveRight){
-    //     if(ball.posX < scrWidth){
-    //         moveRight();
-    //     } else{
-    //         moveRight = false;
-    //         moveLeft = true;
-    //     }
-
-    //     if(ball.posY > 0 + ball.height){
-    //         moveDown();
-    //     } else{
-    //          //Reflect Or Game OVer
-    //          return;
-    //     }
-    // }
-
-
-
-
-
-
-    // console.log(ball.posX);
-    // console.log(ball.posY);
-    // console.log(ball.moveUp);
-    // console.log(ball.moveRight);
-    // console.log(ball.moveDown);
-    // console.log(ball.moveLeft);
-
-
+    if (ball.moveDown && ball.moveRight) {
+        if (ball.posX < scrWidth) {
+            moveRight();
+        } else {
+            ball.moveRight = false;
+            ball.moveLeft = true;
+        }
+        if (ball.posY > 0 + ball.height) {
+            moveDown();
+        } else {
+            //Reflect Or Game OVer
+            ball.isGone = true;
+            return;
+        }
+    }
 
 
 
     function moveUp() {
+        console.log('Up');
         ball.posY += ball.speed;
     }
 
     function moveRight() {
+        console.log('Right');
         ball.posX += ball.speed;
     }
 
     function moveLeft() {
-        console.log('moveLeft');
+        console.log('Left');
         ball.posX -= ball.speed;
     }
 
     function moveDown() {
+        console.log('Down');
         ball.posY -= ball.speed;
     }
-
-
 
     ballElement.style.left = ball.posX + 'px';
     ballElement.style.bottom = ball.posY + 'px';

@@ -25,6 +25,7 @@ function initState() {
             moveDown: false,
             moveLeft: false,
             moveRight: false,
+            isGone : false
         }
     }
 
