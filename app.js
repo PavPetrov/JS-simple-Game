@@ -17,7 +17,7 @@ document.addEventListener('keyup', (e) => {
         state.keys[e.code] = false;
     }
 });
-document.addEventListener('touchmove', (e) => {
+document.addEventListener('touchstart', (e) => {
 
     state.pointer.posX = e.touches[0].clientX;
     //   console.log(e.movementX);
