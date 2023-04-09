@@ -17,23 +17,26 @@ document.addEventListener('keyup', (e) => {
         state.keys[e.code] = false;
     }
 });
-document.addEventListener('mousemove', (e) => {
-    console.log(e.movementX);
-    console.log(e.layerX)
+document.addEventListener('touchmove', (e) => {
+ //   console.log(e.movementX);
+ //   console.log(e.layerX)
 
-    if (e.movementX < 0) {
-        state.keys.ArrowLeft = true;
-        state.keys.ArrowRight = false;
-    }
-    if (e.movementX == 0) {
-        state.keys.ArrowLeft = false;
-        state.keys.ArrowRight = false;
-    }
-    if (e.movementX > 0) {
-        state.keys.ArrowRight = true;
-        state.keys.ArrowLeft = false;
+    // if (e.movementX < 0) {
+    //     state.keys.ArrowLeft = true;
+    //     state.keys.ArrowRight = false;
+    // }
+    // if (e.movementX == 0) {
+    //     state.keys.ArrowLeft = false;
+    //     state.keys.ArrowRight = false;
+    // }
+    // if (e.movementX > 0) {
+    //     state.keys.ArrowRight = true;
+    //     state.keys.ArrowLeft = false;
 
-    }
+    // }
+
+    state.pointer.posX = e.clientX;
+    
 });
 
 

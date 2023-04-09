@@ -19,6 +19,10 @@ function gameLoop() {
         board.posX = Math.min(board.posX + board.speed, game.gameScreen.offsetWidth - board.width);
     }
 
+    if(state.pointer.posX){
+        board.posX = state.pointer.posX;
+    }
+
     boardElement.style.left = board.posX + 'px';
 
     ballMovment(ball, board, state, game);
