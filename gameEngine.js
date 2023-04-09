@@ -179,4 +179,7 @@ function ballMovment(ball, board, state, game) {
     ballElement.style.left = ball.posX + 'px';
     ballElement.style.bottom = ball.posY + 'px';
 
+    let data = document.querySelector('.data');
+    data.textContent = state.pointer.posX;
+
 }
