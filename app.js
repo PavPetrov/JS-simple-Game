@@ -44,7 +44,7 @@ document.addEventListener('touchmove', (e) => {
 
 
 game.startScreen.addEventListener('click', (e) => {
-    console.log(e.currentTarget);
+    document.querySelector('.info').classList.add('hidden');
     e.currentTarget.classList.add('hidden');
     game.gameScreen.classList.remove('hidden');
 

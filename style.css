@@ -21,6 +21,11 @@ body {
     top: 30%;
     transform: translate(-50%);
 }
+.info {
+    text-align: center;
+    padding: 30px;
+    top: 50%;
+}
 
 .start-screen:hover {
     background-color: burlywood;
