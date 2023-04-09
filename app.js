@@ -17,7 +17,7 @@ document.addEventListener('keyup', (e) => {
         state.keys[e.code] = false;
     }
 });
-document.addEventListener('touchstart', (e) => {
+document.addEventListener('touchmove', (e) => {
 
     state.pointer.posX = e.touches[0].clientX;
     //   console.log(e.movementX);
@@ -36,8 +36,6 @@ document.addEventListener('touchstart', (e) => {
     //     state.keys.ArrowLeft = false;
 
     // }
-
-
 });
 
 
