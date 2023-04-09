@@ -16,7 +16,7 @@ function initState() {
             ArrowRight: false
         },
         pointer: {
-            posX: 0,
+            posX: -1,
         },
         ball: {
             width: 25,

@@ -19,7 +19,7 @@ function gameLoop() {
         board.posX = Math.min(board.posX + board.speed, game.gameScreen.offsetWidth - board.width);
     }
 
-    if(!(state.keys.ArrowLeft && state.keys.ArrowRight)){
+    if(state.pointer.posX > 0){
         board.posX = state.pointer.posX;
     }
 

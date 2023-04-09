@@ -18,8 +18,12 @@ document.addEventListener('keyup', (e) => {
     }
 });
 document.addEventListener('touchmove', (e) => {
- //   console.log(e.movementX);
- //   console.log(e.layerX)
+
+    let touch = e.originalEvent.touches[0]
+
+    state.pointer.posX = touch.clientX;
+    //   console.log(e.movementX);
+    //   console.log(e.layerX)
 
     // if (e.movementX < 0) {
     //     state.keys.ArrowLeft = true;
@@ -35,8 +39,7 @@ document.addEventListener('touchmove', (e) => {
 
     // }
 
-    state.pointer.posX = e.clientX;
-    
+
 });
 
 
